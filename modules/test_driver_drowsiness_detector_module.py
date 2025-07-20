@@ -42,6 +42,7 @@ def play_sound(sound_type):
 # 🧠 Drowsiness Logic
 # =========================
 def evaluate_driver_state(blink_count, avg_blink_duration, total_eye_closure_duration, yawn_count, detected_classes):
+    '''you can change the thresholds depending on your criteria for monitoring'''
     head_dropped = "head_dropped" in detected_classes
 
     if (total_eye_closure_duration >= 5 and head_dropped) or total_eye_closure_duration >= 5:

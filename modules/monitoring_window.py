@@ -21,7 +21,7 @@ class MonitoringThread(QThread):
     def run(self):
         self.running = True
         session_id = f"session_{datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}"
-        model = YOLO(monitor.resource_path("best.pt"))
+        model = YOLO(monitor.resource_path("path _for_model_weights"))
         cap = cv2.VideoCapture(0)
         blink_tracker = monitor.BlinkTracker()
         yawn_tracker = monitor.YawnTracker()
