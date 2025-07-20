@@ -1,0 +1,14 @@
+PyQt5
+bcrypt
+pymongo
+opencv-python
+ultralytics
+pygame
+requests
+python-dotenv
+streamlit
+plotly
+pandas
+
+
+
