@@ -4,11 +4,14 @@ from pymongo import MongoClient
 from urllib.parse import quote_plus
 
 def connect_to_cloud_db():
+    # if your username or password contains any special character then use the quote_plus for percent encoding
+    user_name = quote_plus("user_name")
+    password = quote_plus("password")
     uri = "MONGODB_URI"  # Load URI securely from environment
     if not uri:
         raise ValueError("MONGODB_URI not set in environment")
     client = MongoClient(uri)
-    db = client["cluster_name"]
+    db = client["project_name"]
     users_col = db["users"]
     sessions_col = db["sessions"]
     return users_col, sessions_col
