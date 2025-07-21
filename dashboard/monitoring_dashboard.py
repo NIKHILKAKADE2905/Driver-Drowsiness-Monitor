@@ -10,9 +10,14 @@ from urllib.parse import quote_plus
 # ⚙️ MongoDB Setup
 # ------------------------------
 def connect_to_cloud_db():
-    uri = "YOUR_MONGODB_URI" 
+    # if your username or password contains any special character then use the quote_plus for percent encoding
+    user_name = st.secrets["MONGO"]["USER"]
+    password = quote_plus(st.secrets["MONGO"]["PASS"])
+    project_name = st.secrets["MONGO"]["PROJECT_NAME"]
+    uri = f"mongodb+srv://{user_name}:{password}@cluster0.6saqqje.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"  # Load URI securely from environment
+    # uri = "YOUR_MONGODB_URI" you can paste your own database uri
     client = MongoClient(uri)
-    db = client["cluster_name"]
+    db = client[project_name]
     return db["users"], db["sessions"]
 
 users_col, sessions_col = connect_to_cloud_db()
