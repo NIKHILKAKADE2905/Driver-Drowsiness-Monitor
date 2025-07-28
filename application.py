@@ -1,10 +1,10 @@
 from PyQt5.QtWidgets import QApplication, QLabel, QPushButton, QVBoxLayout, QWidget, QMessageBox
 from PyQt5.QtCore import Qt
 import sys
-from signup_window import SignUpWindow
-from signin_window import SignInWindow
-from delete_window import DeleteAccountWindow
-from auth_utils import connect_to_cloud_db
+from modules.signup_window import SignUpWindow
+from modules.signin_window import SignInWindow
+from modules.delete_window import DeleteAccountWindow
+from modules.auth_utils import connect_to_cloud_db
 
 class DriverLoginGUI(QWidget):
     def __init__(self):
